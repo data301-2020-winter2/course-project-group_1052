@@ -1,4 +1,5 @@
-import panda as pd
+import pandas as pd
+import os 
 
 def load_and_process(path):
     df1 = pd.read_csv(path)
