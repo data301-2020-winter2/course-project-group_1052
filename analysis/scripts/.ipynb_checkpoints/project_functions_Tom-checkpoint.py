@@ -24,3 +24,10 @@ def unique_word_count(dataframe):
              .sort_values(ascending = False))
     
     return df1
+
+def words_per_year(dataframe):
+    
+    df1 = (dataframe.drop(columns = ['ogArtist', 'category',  'isCensored', 'isPresent'])
+          .loc[dataframe['badWord'] == ['fuck', 'shit', 'damn', 'man', 'kiss']])
+    
+    return df1
