@@ -22,3 +22,15 @@ def load_df(path):
            .rename(columns={'badword':'badWord'})
           )
     return df2
+
+def badWorddf(df, badWord):
+    df2 = df[df['badWord']==badWord]
+    df2 = (pd.DataFrame(df2['year']
+                      .value_counts())
+          .reset_index()
+          .rename(columns={'year':'value','index':'year'})
+          .sort_values(by='year', ascending = False)
+          .reset_index()
+          .drop(columns='index')
+         )
+    return df2
