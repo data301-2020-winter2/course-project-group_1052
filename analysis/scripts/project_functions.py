@@ -15,22 +15,10 @@ def load_and_process(path, name):
     os.chdir('analysis/' + name)
     return df2
 
-def load_df(path, name):
-    os.chdir('../../')
-    df1 = pd.read_csv(path)
-    
-    df2 = (df1.drop(columns=['isPresent','isCensored'])
-           .rename(columns={'badword':'badWord'})
-          )
-    os.chdir('analysis/' + name)
-    return df2
-
 def load_df(path):
-    os.chdir('../')
     df1 = pd.read_csv(path)
     
     df2 = (df1.drop(columns=['isPresent','isCensored'])
            .rename(columns={'badword':'badWord'})
           )
-    os.chdir('analysis')
     return df2
