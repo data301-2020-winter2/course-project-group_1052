@@ -23,8 +23,8 @@ def load_df(path):
           )
     return df2
 
-def badWorddf(df, badWord):
-    df2 = df[df['badWord']==badWord]
+def badWorddf(df, column, word):
+    df2 = df[df[column]==word]
     df2 = (pd.DataFrame(df2['year']
                       .value_counts())
           .reset_index()
