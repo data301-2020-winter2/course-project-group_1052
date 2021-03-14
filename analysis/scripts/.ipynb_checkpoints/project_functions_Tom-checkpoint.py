@@ -27,7 +27,28 @@ def unique_word_count(dataframe):
 
 def words_per_year(dataframe):
     
-    df1 = (dataframe.drop(columns = ['ogArtist', 'category',  'isCensored', 'isPresent'])
-          .loc[dataframe['badWord'] == ['fuck', 'shit', 'damn', 'man', 'kiss']])
+    df1 = dataframe.drop(columns = ['ogArtist', 'songName', 'category', 'ogLyric', 'kbLyric', 'count'])
     
-    return df1
+    df2 = df1.loc[(df1['badWord'] == 'fuck') | (df1['badWord'] == 'shit') |(df1['badWord'] == 'damn') |(df1['badWord'] == 'man') |(df1['badWord'] == 'kiss')]
+    
+    df3 = df2.value_counts()
+    
+    df4 = df3.reset_index()
+    
+    df5 = df4.rename(columns={0:'count'})
+    
+    return df5
+
+def words_per_year_T4(dataframe):
+    
+    df1 = dataframe.drop(columns = ['ogArtist', 'category', 'isCensored', 'isPresent', 'count'])
+    
+    df2 = df1.loc[(df1['badWord'] == 'fuck') | (df1['badWord'] == 'shit') |(df1['badWord'] == 'damn') |(df1['badWord'] == 'man') |(df1['badWord'] == 'kiss')]
+    
+    df3 = df2.value_counts()
+    
+    df4 = df3.reset_index()
+    
+    df5 = df4.rename(columns={0:'count'})
+    
+    return df5
