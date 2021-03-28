@@ -34,3 +34,14 @@ def badWorddf(df, column, word):
           .drop(columns='index')
          )
     return df2
+
+def badWord_df(df,badWords):
+    df2 = pd.DataFrame({'year':df['year'].unique().tolist()}).sort_values(by='year').reset_index(drop=True)
+    for i in badWords:
+        df3 = df[df['badWord']==i]['year'].value_counts()
+        for j in range(2001,2020):
+            if j not in df3.index:
+                df3[j]=0
+        df3 = df3.sort_index()
+        df2[i]=df3.values
+    return df2
