@@ -26,3 +26,7 @@ This data set was referenced from The Pudding article "Just how does Kidz Bop ce
 
 {https://kidzbop.com/faq/
 https://github.com/the-pudding/data/tree/master/kidz-bop}
+
+## Video of our presentation
+
+[Click here to see our video presentation!](https://youtu.be/bZlwXDESHvY)
